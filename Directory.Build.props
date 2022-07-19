@@ -23,7 +23,7 @@
         <EntityFrameworkCore_Version>7.0.0-preview.6.22329.4</EntityFrameworkCore_Version>
 
         <!--MongoDb-->
-        <MongoDb_Version>2.16.1</MongoDb_Version>
+        <MongoDb_Version>2.17.0</MongoDb_Version>
 
         <!--MassTransit-->
         <MassTransit_Version>8.0.6-develop.515</MassTransit_Version>
