@@ -49,7 +49,7 @@
         <AutoMapper_Extensions_Version>11.0.0</AutoMapper_Extensions_Version>
 
         <!--Swashbuckle-->
-        <Swashbuckle_Version>6.3.2</Swashbuckle_Version>
+        <Swashbuckle_Version>6.4.0</Swashbuckle_Version>
         <Swashbuckle_FluentValidation_Version>5.7.0</Swashbuckle_FluentValidation_Version>
 
         <!--Polly-->
