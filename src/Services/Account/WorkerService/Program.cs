@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Application.DependencyInjection;
 using Infrastructure.EventStore.Contexts;
 using Infrastructure.EventStore.DependencyInjection.Extensions;
 using Infrastructure.EventStore.DependencyInjection.Options;
@@ -42,6 +43,7 @@ builder.ConfigureServices((context, services) =>
     services.AddMessageBus();
     services.AddMessageValidators();
     services.AddNotificationContext();
+    services.AddInteractors();
 
     services.ConfigureEventStoreOptions(
         context.Configuration.GetSection(nameof(EventStoreOptions)));

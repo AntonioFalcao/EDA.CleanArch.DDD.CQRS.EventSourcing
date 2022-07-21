@@ -23,6 +23,7 @@ public static class ServiceCollectionExtensions
             {
                 cfg.SetKebabCaseEndpointNameFormatter();
                 cfg.AddConsumers(Assembly.Load(nameof(Application)));
+                cfg.AddConsumers(Assembly.GetExecutingAssembly());
 
                 cfg.UsingRabbitMq((context, bus) =>
                 {

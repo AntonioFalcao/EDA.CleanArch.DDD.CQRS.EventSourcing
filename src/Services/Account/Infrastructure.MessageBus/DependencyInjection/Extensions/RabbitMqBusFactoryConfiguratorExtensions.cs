@@ -1,6 +1,6 @@
-﻿using Application.UseCases.Events.Projections;
-using Contracts.Abstractions.Messages;
+﻿using Contracts.Abstractions.Messages;
 using Contracts.Services.Account;
+using Infrastructure.MessageBus.Consumers.Events;
 using MassTransit;
 
 namespace Infrastructure.MessageBus.DependencyInjection.Extensions;
@@ -9,10 +9,10 @@ internal static class RabbitMqBusFactoryConfiguratorExtensions
 {
     public static void ConfigureEventReceiveEndpoints(this IRabbitMqBusFactoryConfigurator cfg, IRegistrationContext context)
     {
-        cfg.ConfigureEventReceiveEndpoint<ProjectAccountWhenChangedConsumer, DomainEvent.AccountCreated>(context);
-        cfg.ConfigureEventReceiveEndpoint<ProjectAccountWhenChangedConsumer, DomainEvent.AccountDeleted>(context);
-        cfg.ConfigureEventReceiveEndpoint<ProjectAddressWhenChangedConsumer, DomainEvent.ShippingAddressAdded>(context);
-        cfg.ConfigureEventReceiveEndpoint<ProjectAddressWhenChangedConsumer, DomainEvent.BillingAddressAdded>(context);
+        cfg.ConfigureEventReceiveEndpoint<AccountCreatedConsumer, DomainEvent.AccountCreated>(context);
+        cfg.ConfigureEventReceiveEndpoint<AccountDeletedConsumer, DomainEvent.AccountDeleted>(context);
+        cfg.ConfigureEventReceiveEndpoint<ShippingAddressAddedConsumer, DomainEvent.ShippingAddressAdded>(context);
+        cfg.ConfigureEventReceiveEndpoint<BillingAddressAddedConsumer, DomainEvent.BillingAddressAdded>(context);
     }
 
     private static void ConfigureEventReceiveEndpoint<TConsumer, TEvent>(this IRabbitMqBusFactoryConfigurator bus, IRegistrationContext context)
